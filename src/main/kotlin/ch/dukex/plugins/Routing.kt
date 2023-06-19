@@ -1,6 +1,7 @@
 package ch.dukex.plugins
 
 import ch.dukex.Storage
+import ch.dukex.domain.Answer
 import ch.dukex.domain.Question
 import ch.dukex.domain.Quiz
 import io.ktor.server.routing.*
@@ -13,7 +14,8 @@ fun Application.configureRouting() {
             call.respondText("Hello World!")
         }
         get("/quiz") {
-            val question = Question("Best Flag?", mapOf("South Korea" to true, "USA" to false))
+            val answers = listOf(Answer("South Korea", true), Answer("USA", false))
+            val question = Question("Best Flag?", answers)
             val quiz = Quiz("Boss Quiz", listOf(question))
             val storage = Storage()
             storage.addQuiz(quiz)
