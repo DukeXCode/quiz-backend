@@ -13,7 +13,7 @@ fun Application.configureRouting() {
             call.respondText("Hello World!")
         }
         get("/quiz") {
-            val question = Question("Best Flag?", listOf("South Korea", "Japan", "USA"))
+            val question = Question("Best Flag?", mapOf("South Korea" to true, "USA" to false))
             val quiz = Quiz("Boss Quiz", listOf(question))
             val storage = Storage()
             storage.addQuiz(quiz)
