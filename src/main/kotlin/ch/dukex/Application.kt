@@ -1,9 +1,10 @@
 package ch.dukex
 
+import ch.dukex.plugins.configureRouting
+import ch.dukex.plugins.configureSerialization
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import ch.dukex.plugins.*
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
